@@ -1,0 +1,161 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
+
+[colors]
+;background = ${xrdb:color0:#222}
+background = #222
+background-alt = #444
+;foreground = ${xrdb:color7:#222}
+foreground = #dfdfdf
+foreground-alt = #555
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+black = #000
+white = #fff
+grey = #aaa
+darkgrey = #555
+red = #f00
+green = #0f0
+blue = #4c7899
+yellow = #d2b55b
+
+
+[bar/background]
+modules-center = date
+;modules-right = wlan
+tray-position = right
+font-0 = JetBrains Mono:style=Regular
+height = 30
+width = 1820
+offset-y = 15
+offset-x = 50
+background = #aaa9ad 
+radius = 15
+override-redirect=true
+
+[module/date]
+type = internal/date
+date = "%h-%d-20%y %H:%M:%S"
+label-foreground = #000000
+
+[bar/i3]
+modules-center = i3
+height = 30
+width = 350
+offset-y = 15
+offset-x = 50
+radius=15
+override-redirect=true
+background = #004b59
+font-0 = JetBrains Mono:style=Regular
+
+[module/i3]
+type = internal/i3
+label-focused = %index%
+label-focused-background = ${colors.yellow}
+label-focused-foreground = ${colors.black}
+label-focused-underline= #ffffff
+label-focused-line-size=3
+label-focused-padding = 1
+
+label-unfocused = %index%
+label-unfocused-foreground = ${colors.white}
+label-unfocused-padding = 1
+label-urgent = %index%
+label-urgent-foreground = ${colors.white}
+label-urgent-background = ${colors.red}
+label-urgent-padding = 1
+
+[bar/battery]
+modules-center = battery
+height = 30
+width = 150
+offset-y = 15
+offset-x = 420
+radius=15
+override-redirect=true
+background = #29544b
+font-0 = JetBrains Mono:style=Regular
+
+[module/battery]
+type = internal/battery
+full-at = 100
+battery = BAT0
+adapter = ADP1
+poll-interval = 5
+
+;time-format = %H:%M
+label-charging = CHR %percentage%%
+label-discharging = DIS %percentage%%
+label-full =  100%
+
+[bar/backlight]
+modules-center = backlight
+height = 30
+width = 150
+offset-y = 15
+offset-x = 600
+radius=15
+override-redirect=true
+background = #004b59
+font-0 = JetBrains Mono:style=Regular
+font-1 = siji:pixelsize=10;1
+
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
+format = BL <ramp>
+; Available tokens:
+; Only applies if <ramp> is used
+ramp-0 = ____
+ramp-1 = *___
+ramp-2 = **__
+ramp-3 = ***_
+ramp-4 = ****
+enable-scroll = true
+label = "%percentage%%"
+
+[bar/wlan]
+;background = #1a0936
+modules-center = wlan
+height = 30
+width = 300
+offset-y = 15
+offset-x = 1570
+radius=15
+override-redirect=true
+background = #1a0936
+font-0 = JetBrains Mono:style=Regular
+
+[module/wlan]
+type = internal/network
+interface = wlan0
+format-disconnected = <label-disconnected>
+format-connected = <label-connected> <ramp-signal>
+
+;label-connected = "CON %essid% %{F#00F000}%local_ip%"
+label-connected = "CON %essid%"
+label-disconnected = "UNC"
+
+ramp-signal-0 = _____
+ramp-signal-1 = *____
+ramp-signal-2 = **___
+ramp-signal-3 = ***__
+ramp-signal-4 = ****_
+ramp-signal-5 = *****
