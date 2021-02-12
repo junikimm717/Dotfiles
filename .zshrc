@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/scripts:$HOME/.emacs.d/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/junikim/.oh-my-zsh"
@@ -12,10 +13,7 @@ export ZSH="/home/junikim/.oh-my-zsh"
 ZSH_THEME="edvardm"
 #ZSH_THEME="agnoster"
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
+# Set list of themes to pick from when loading at random Setting this variable when ZSH_THEME=random will cause zsh to load a theme from this variable instead of looking in $ZSH/themes/ If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
@@ -149,6 +147,7 @@ compinit
 _comp_options+=(globdots)
 export EDITOR=nvim
 alias sudo='doas'
+PF_INFO="ascii title os host kernel uptime pkgs memory"
 pfetch
 
 # for changing neovim cursor after finishing

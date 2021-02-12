@@ -30,6 +30,7 @@ hc keybind $Mod-Shift-e quit
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-q close
 hc keybind $Mod-Return spawn "${TERMINAL:-xterm}" # use your $TERMINAL with xterm as fallback
+hc keybind $Mod-Shift-w spawn "brave"
 
 # basic movement in tiling and floating mode
 # focusing clients
@@ -54,11 +55,14 @@ hc keybind $Mod-Shift-l     shift right
 
 #dmenu
 hc keybind $Mod-p           spawn dmenu_run -fn "JetBrains Mono:size=12"
-hc keybind $Mod-s           spawn $TERMINAL -e alsamixer
+
 # change brightnessctl
 
-hc keybind Mod1-Up          spawn brightnessctl set 10%+
-hc keybind Mod1-Down        spawn brightnessctl set 10%-
+hc keybind Mod1-Right          spawn brightnessctl set 10%+
+hc keybind Mod1-Left        spawn brightnessctl set 10%-
+hc keybind Mod1-Up          spawn amixer -c 0 sset Master 5+
+hc keybind Mod1-Down          spawn amixer -c 0 sset Master 5-
+
 
 
 # splitting frames
