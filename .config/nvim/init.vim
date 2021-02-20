@@ -31,6 +31,14 @@ set autoindent
 set cindent
 filetype indent off
 
+inoremap ( ()<Esc>i
+inoremap { {}<Esc>i
+inoremap {<CR> {<CR>}<Esc>O
+inoremap [ []<Esc>i
+"inoremap < <><Esc>i
+inoremap ' ''<Esc>i
+inoremap " ""<Esc>i
+"
 " enable filetype detection:
 filetype on
 
@@ -39,7 +47,6 @@ autocmd FileType c,cpp,slang set cindent
 " * Keystrokes -- Insert Mode
 
 " autocomplete
-inoremap {<CR> {<CR>}<ESC>O
 map <F5> :!bash test.sh <ESC>
 set number
 "set relativenumber
@@ -67,9 +74,16 @@ endfu
 nnoremap <F7> :call Lesser() <ESC>
 
 autocmd BufNewFile,BufRead *.ms :set filetype=groff
-autocmd Filetype tex nnoremap <F12> :w <bar> :!pdflatex %:p <ESC>
 autocmd Filetype groff nnoremap <F12> :w <bar> :!groff -ms %:r\.ms -T pdf >> %:r\.pdf <ESC>
 autocmd Filetype tex,groff call Lesser()
+
+func! Latexshortcuts()
+    inoremap \[ \[\]<Esc>hi
+    inoremap $ $$<Esc>i
+    nnoremap <F12> :w <bar> :!pdflatex %:p <ESC>
+endfu
+
+autocmd Filetype tex :call Latexshortcuts()
 
 syntax on
 set mouse=a

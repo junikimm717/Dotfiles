@@ -1,5 +1,5 @@
 setxkbmap -option caps:escape
 brightnessctl set 50%
 
-MANAGER=herbstluftwm
+MANAGER=dwm
 exec $MANAGER    

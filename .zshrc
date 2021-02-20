@@ -4,14 +4,15 @@ export PATH=$HOME/scripts:$HOME/.emacs.d/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/junikim/.oh-my-zsh"
+export HISTSIZE=500
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
-ZSH_THEME="edvardm"
-#ZSH_THEME="agnoster"
+#ZSH_THEME="edvardm"
+ZSH_THEME="agnoster"
 
 # Set list of themes to pick from when loading at random Setting this variable when ZSH_THEME=random will cause zsh to load a theme from this variable instead of looking in $ZSH/themes/ If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
@@ -139,6 +140,9 @@ o() {
 caps() {
     setxkbmap -option caps:escape
 }
+mkcd() {
+    mkdir $1 && cd $1
+}
 
 autoload -U compinit
 zstyle ':completion:*' menu select
@@ -147,7 +151,8 @@ compinit
 _comp_options+=(globdots)
 export EDITOR=nvim
 alias sudo='doas'
-PF_INFO="ascii title os host kernel uptime pkgs memory"
+#export PF_INFO="ascii title os host kernel uptime pkgs memory"
+export PF_INFO="ascii title os kernel wm shell pkgs"
 pfetch
 
 # for changing neovim cursor after finishing

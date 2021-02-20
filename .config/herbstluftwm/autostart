@@ -139,7 +139,7 @@ hc set frame_border_width 1
 hc set always_show_frame on
 hc set frame_bg_transparent on
 hc set frame_transparent_width 5
-hc set frame_gap 30
+hc set frame_gap 40
 
 hc attr theme.active.color '#9fbc00'
 hc attr theme.normal.color '#454545'
@@ -178,9 +178,8 @@ hc set tree_style '╾│ ├└╼─┐'
 hc unlock
 
 # do multi monitor setup here, e.g.:
-hc set_monitors 1920x1060+0+35
 # or simply:
-# hc detect_monitors
+hc detect_monitors
 
 # find the panel
 panel=~/.config/herbstluftwm/panel.sh

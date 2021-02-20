@@ -52,6 +52,13 @@ mkcd() {
 }
 alias sudo='doas'
 
+reset-cursor() {
+  printf '\033]50;CursorShape=1\x7'
+}
+export PS1="$(reset-cursor)$PS1"
+
+
+
 
 export EDITOR=nvim
 export QT_STYLE_OVERRIDE=Fusion

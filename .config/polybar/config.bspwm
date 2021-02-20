@@ -57,7 +57,7 @@ label-foreground = #000000
 [bar/bspwm]
 modules-center = bspwm
 height = 30
-width = 500
+width = 550
 offset-y = 5
 offset-x = 50
 radius=15
@@ -66,40 +66,33 @@ font-0 = JetBrains Mono:style=Regular
 
 [module/bspwm]
 type=internal/bspwm
-pin-workspaces = true
-inline-mode = false
-enable-click = false
-enable-scroll = false
-reverse-scroll = false
-fuzzy-match = true
 
-label-dimmed-foreground = #555
-label-dimmed-underline = ${bar/top.background}
-label-dimmed-focused-background = #f00
+label-focused = %index%
+label-focused-background = ${colors.background-alt}
+label-focused-underline= #ffb52a
+label-focused-padding = 2
 
-label-focused = %name%
-label-focused-foreground = #ffffff
-label-focused-background = #3f3f3f
-label-focused-underline = #fba922
+label-occupied = %index%
+label-occupied-padding = 2
 
-label-occupied = %name%
-label-occupied-underline = #555555
+label-urgent = %index%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
 
-label-urgent = %name%
-label-urgent-foreground = #000000
-label-urgent-background = #bd2c40
-label-urgent-underline = #9b0a20
+label-empty = %index%
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 2
 
-label-separator = |
-label-separator-padding = 1
-label-separator-foreground = #ffb52a
+;label-separator = |
+;label-separator-padding = 1
+;label-separator-foreground = #ffb52a
 
 [bar/battery]
 modules-center = battery
 height = 30
 width = 150
 offset-y = 5
-offset-x = 600
+offset-x = 650
 radius=15
 ;override-redirect=true
 background = #29544b
