@@ -11,8 +11,8 @@ export HISTSIZE=500
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
-#ZSH_THEME="edvardm"
-ZSH_THEME="agnoster"
+ZSH_THEME="edvardm"
+#ZSH_THEME="agnoster"
 
 # Set list of themes to pick from when loading at random Setting this variable when ZSH_THEME=random will cause zsh to load a theme from this variable instead of looking in $ZSH/themes/ If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
@@ -160,6 +160,7 @@ reset-cursor() {
   printf '\033]50;CursorShape=1\x7'
 }
 export PS1="$(reset-cursor)$PS1"
+export TERM=alacritty
 
 # make sure to do last!
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh > /dev/null

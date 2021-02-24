@@ -186,7 +186,7 @@ font-0 = JetBrains Mono:style=Regular
 
 [module/wlan]
 type = internal/network
-interface = wlan0
+interface = wlp0s20f3
 format-disconnected = <label-disconnected>
 format-connected = <label-connected> <ramp-signal>
 

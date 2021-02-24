@@ -12,12 +12,12 @@ old() {
     polybar mybar &
 }
 newver() {
-    polybar -c ~/.config/polybar/config.bspwm background & sleep 0.5
+    polybar -c ~/.config/polybar/config background & sleep 0.5
     polybar -c ~/.config/polybar/config.bspwm bspwm &
-    polybar -c ~/.config/polybar/config.bspwm battery &
-    polybar -c ~/.config/polybar/config.bspwm backlight &
-    polybar -c ~/.config/polybar/config.bspwm wlan &
-    polybar -c ~/.config/polybar/config.bspwm alsa &
+    polybar -c ~/.config/polybar/config battery &
+    polybar -c ~/.config/polybar/config backlight &
+    polybar -c ~/.config/polybar/config wlan &
+    polybar -c ~/.config/polybar/config alsa &
 }
 
 newver

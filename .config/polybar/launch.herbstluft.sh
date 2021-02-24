@@ -12,12 +12,12 @@ old() {
     polybar mybar &
 }
 newver() {
-    polybar -c ~/.config/polybar/config.herbstluft background & sleep 0.5
+    polybar -c ~/.config/polybar/config background & sleep 0.5
     polybar -c ~/.config/polybar/config.herbstluft xwindow &
-    polybar -c ~/.config/polybar/config.herbstluft battery &
-    polybar -c ~/.config/polybar/config.herbstluft backlight &
-    polybar -c ~/.config/polybar/config.herbstluft wlan &
-    polybar -c ~/.config/polybar/config.herbstluft alsa &
+    polybar -c ~/.config/polybar/config battery &
+    polybar -c ~/.config/polybar/config backlight &
+    polybar -c ~/.config/polybar/config wlan &
+    polybar -c ~/.config/polybar/config alsa &
 }
 
 #old()

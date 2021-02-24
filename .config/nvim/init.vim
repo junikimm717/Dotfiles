@@ -36,7 +36,7 @@ inoremap { {}<Esc>i
 inoremap {<CR> {<CR>}<Esc>O
 inoremap [ []<Esc>i
 "inoremap < <><Esc>i
-inoremap ' ''<Esc>i
+"inoremap ' ''<Esc>i
 inoremap " ""<Esc>i
 "
 " enable filetype detection:
@@ -80,7 +80,8 @@ autocmd Filetype tex,groff call Lesser()
 func! Latexshortcuts()
     inoremap \[ \[\]<Esc>hi
     inoremap $ $$<Esc>i
-    nnoremap <F12> :w <bar> :!pdflatex %:p <ESC>
+    "nnoremap <F12> :w <bar> :!pdflatex %:p <bar> :!rm -rf *.aux *.log <ESC>
+    nnoremap <F12> :w <bar> :!pdflatex %:p && rm -rf *.aux *.log <ESC>
 endfu
 
 autocmd Filetype tex :call Latexshortcuts()
