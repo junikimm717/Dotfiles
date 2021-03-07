@@ -1,6 +1,5 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
-
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -11,6 +10,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe', { 'do': './install.py --java-completer --rust-completer --ts-completer' }
 Plugin 'udalov/kotlin-vim'
+Plugin 'Townk/vim-autoclose'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -31,14 +31,6 @@ set autoindent
 set cindent
 filetype indent off
 
-inoremap ( ()<Esc>i
-inoremap { {}<Esc>i
-inoremap {<CR> {<CR>}<Esc>O
-inoremap [ []<Esc>i
-"inoremap < <><Esc>i
-"inoremap ' ''<Esc>i
-inoremap " ""<Esc>i
-"
 " enable filetype detection:
 filetype on
 
@@ -47,7 +39,8 @@ autocmd FileType c,cpp,slang set cindent
 " * Keystrokes -- Insert Mode
 
 " autocomplete
-map <F5> :!bash test.sh <ESC>
+nnoremap <F5> :!bash test.sh <ESC>
+nnoremap <F11> :!yacoh run
 set number
 "set relativenumber
 
@@ -67,21 +60,19 @@ endfu
 nnoremap <F6> :call WordProcessor() <ESC>
 
 
-func! Lesser()
-    map j gj
-    map k gk
-endfu
-nnoremap <F7> :call Lesser() <ESC>
+map j gj
+map k gk
 
 autocmd BufNewFile,BufRead *.ms :set filetype=groff
 autocmd Filetype groff nnoremap <F12> :w <bar> :!groff -ms %:r\.ms -T pdf >> %:r\.pdf <ESC>
-autocmd Filetype tex,groff call Lesser()
+"autocmd Filetype tex,groff call Lesser()
 
 func! Latexshortcuts()
     inoremap \[ \[\]<Esc>hi
     inoremap $ $$<Esc>i
     "nnoremap <F12> :w <bar> :!pdflatex %:p <bar> :!rm -rf *.aux *.log <ESC>
     nnoremap <F12> :w <bar> :!pdflatex %:p && rm -rf *.aux *.log <ESC>
+    inoremap enum \begin{enumerate}<CR>\end{enumerate}<ESC>O
 endfu
 
 autocmd Filetype tex :call Latexshortcuts()

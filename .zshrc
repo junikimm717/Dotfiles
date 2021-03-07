@@ -150,7 +150,7 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots)
 export EDITOR=nvim
-alias sudo='doas'
+#alias sudo='doas'
 #export PF_INFO="ascii title os host kernel uptime pkgs memory"
 export PF_INFO="ascii title os kernel wm shell pkgs"
 pfetch
@@ -164,3 +164,4 @@ export TERM=alacritty
 
 # make sure to do last!
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh > /dev/null
+export PATH=/home/junikim/programming/yacoh:$PATH
