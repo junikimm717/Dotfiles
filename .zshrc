@@ -1,6 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=$HOME/scripts:$HOME/.emacs.d/bin:$PATH
+export PATH=$HOME/mktex:$HOME/scripts/bin:$HOME/.emacs.d/bin:$HOME/.local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/junikim/.oh-my-zsh"
@@ -71,7 +71,7 @@ ZSH_THEME="edvardm"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -102,65 +102,44 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
-gac() {
-    git add . && git commit
-}
-v() {
-    nvim $@
-}
+alias gac='git add . && git commit'
+alias v='nvim'
+alias s='ls'
+alias sy='systemctl'
+alias j='journalctl'
+alias r='source ranger'
+alias c='clear'
+alias e='exit'
+alias a='alsamixer'
+alias o='xdg-open'
+alias caps='setxkbmap -option caps:escape'
 z() {
     zathura $@ & disown
-}
-s() {
-    ls $@
-}
-c() {
-    clear
-}
-r() {
-    source ranger $@
-}
-e() {
-    exit $@
-}
-a() {
-    alsamixer
-}
-p() {
-    python3
-}
-
-m() {
-    ~/cp/make_prob.py $@
-}
-
-o() {
-    xdg-open $@
-}
-caps() {
-    setxkbmap -option caps:escape
 }
 mkcd() {
     mkdir $1 && cd $1
 }
-
+f() {
+    fff "$@"
+    cd "$(cat "${XDG_CACHE_HOME:=${HOME}/.cache}/fff/.fff_d")"
+}
 autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots)
 export EDITOR=nvim
-alias sudo='doas'
 #export PF_INFO="ascii title os host kernel uptime pkgs memory"
 export PF_INFO="ascii title os kernel wm shell pkgs"
 pfetch
-
 # for changing neovim cursor after finishing
+
+export TERM=alacritty
+set -o vi
+eval "$(starship init zsh)"
 reset-cursor() {
   printf '\033]50;CursorShape=1\x7'
 }
 export PS1="$(reset-cursor)$PS1"
-export TERM=alacritty
-
 # make sure to do last!
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh > /dev/null

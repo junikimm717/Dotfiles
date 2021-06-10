@@ -1,22 +1,13 @@
 font:
     size: 7
     normal:
-        family: 'JetBrains Mono'
+        family: 'Fira Code'
     italic:
-        family: 'JetBrains Mono'
+        family: 'Fira Code'
     bold:
-        family: 'JetBrains Mono'
-    
+        family: 'Fira Code'
 
-
-window:
-  padding:
-    x: 5
-    y: 5
-cursor:
-    style: Beam
-        
-
+# Colors (Hyper)
 colors:
   # Default colors
   primary:
@@ -48,7 +39,17 @@ colors:
     cyan:    '0x00ffff'
     white:   '0xFFFFFF'
 
-background_opacity: 0.8
+
+window:
+  padding:
+    x: 5
+    y: 5
+
+cursor:
+    style: Beam
+        
+
+background_opacity: 0.6
 Window class (Linux/BSD only):
   class:
     #Application instance name

@@ -40,7 +40,7 @@ yellow = #d2b55b
 modules-center = date
 ;modules-right = wlan
 tray-position = right
-font-0 = JetBrains Mono:style=Regular
+font-0 = Fira Code:style=Regular
 height = 30
 width = 1820
 offset-y = 15
@@ -63,7 +63,7 @@ offset-x = 50
 radius=15
 override-redirect=true
 background = #004b59
-font-0 = JetBrains Mono:style=Regular
+font-0 = Fira Code:style=Regular
 
 [module/i3]
 type = internal/i3
@@ -91,7 +91,7 @@ offset-x = 50
 radius=15
 override-redirect=true
 background = #004b59
-font-0 = JetBrains Mono:style=Regular
+font-0 = Fira Code:style=Regular
 
 [module/bspwm]
 type = internal/bspwm
@@ -132,7 +132,7 @@ offset-x = 600
 radius=15
 override-redirect=true
 background = #29544b
-font-0 = JetBrains Mono:style=Regular
+font-0 = Fira Code:style=Regular
 
 [module/battery]
 type = internal/battery
@@ -155,7 +155,7 @@ offset-x = 1100
 radius=15
 override-redirect=true
 background = #004b59
-font-0 = JetBrains Mono:style=Regular
+font-0 = Fira Code:style=Regular
 font-1 = siji:pixelsize=10;1
 
 [module/backlight]
@@ -182,7 +182,7 @@ offset-x = 1550
 radius=15
 override-redirect=true
 background = #1a0936
-font-0 = JetBrains Mono:style=Regular
+font-0 = Fira Code:style=Regular
 
 [module/wlan]
 type = internal/network
@@ -210,7 +210,7 @@ offset-x = 1300
 radius=15
 override-redirect=true
 background = #0e311f
-font-0 = JetBrains Mono:style=Regular
+font-0 = Fira Code:style=Regular
 
 [module/pulse]
 type = internal/pulseaudio

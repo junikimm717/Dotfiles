@@ -1,5 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =9
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/'
+let g:netrw_dirhist_1='/home/junikim/programming/yacoh/template'
+let g:netrw_dirhist_0='/home/junikim/.config/nvim'
 let g:netrw_dirhist_9='/home/junikim/programming/yacoh/scripts'
 let g:netrw_dirhist_8='/etc/java-openjdk'
 let g:netrw_dirhist_7='/home/junikim'
@@ -7,6 +10,3 @@ let g:netrw_dirhist_6='/home/junikim/.config/nvim'
 let g:netrw_dirhist_5='/etc/pacman.d/gnupg'
 let g:netrw_dirhist_4='/home/junikim/scripts'
 let g:netrw_dirhist_3='/home/junikim/.config/sxhkd'
-let g:netrw_dirhist_2='/home/junikim/.local/share/yadm/repo.git'
-let g:netrw_dirhist_1='/home/junikim/.config/sxhkd'
-let g:netrw_dirhist_0='/home/junikim/suckless/dwm'

@@ -50,13 +50,13 @@ x() {
 mkcd() {
     mkdir $1 && cd $1
 }
-alias sudo='doas'
+#alias sudo='doas'
 
 reset-cursor() {
   printf '\033]50;CursorShape=1\x7'
 }
 export PS1="$(reset-cursor)$PS1"
-
+eval "$(starship init bash)"
 
 
 

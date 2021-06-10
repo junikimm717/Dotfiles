@@ -43,7 +43,7 @@ offset-y = 15
 offset-x = 50
 radius=15
 background = #004b59
-font-0 = JetBrains Mono:style=Regular
+font-0 = Fira Code:style=Regular
 
 [module/bspwm]
 type=internal/bspwm
