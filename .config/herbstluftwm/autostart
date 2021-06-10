@@ -8,7 +8,7 @@ hc() {
 
 nitrogen --restore &
 killall picom
-picom --corner-radius 15 & 
+picom --corner-radius 15 --config ~/.config/picom/picom.herbst.conf & 
 
 killall polybar 
 ~/.config/polybar/launch.herbstluft.sh &
@@ -24,12 +24,13 @@ hc keyunbind --all
 # if you have a super key you will be much happier with Mod set to Mod4
 #Mod=Mod1    # Use alt as the main modifier
 Mod=Mod4   # Use the super key as the main modifier
-TERMINAL=alacritty
+TERMINAL="alacritty --config-file ~/.config/alacritty/alacritty.herbst.yml"
 
-hc keybind $Mod-Shift-e quit
+hc keybind $Mod-Shift-e spawn quit.sh 
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-q close
-hc keybind $Mod-Return spawn "${TERMINAL:-xterm}" # use your $TERMINAL with xterm as fallback
+#hc keybind $Mod-Return spawn "${TERMINAL:-xterm}" # use your $TERMINAL with xterm as fallback
+hc keybind $Mod-Return spawn /usr/bin/alacritty --config-file ~/.config/alacritty/alacritty.herbst.yml
 hc keybind $Mod-Shift-w spawn "brave"
 
 # basic movement in tiling and floating mode
@@ -139,7 +140,7 @@ hc set frame_border_width 1
 hc set always_show_frame on
 hc set frame_bg_transparent on
 hc set frame_transparent_width 5
-hc set frame_gap 40
+hc set frame_gap 25
 
 hc attr theme.active.color '#9fbc00'
 hc attr theme.normal.color '#454545'

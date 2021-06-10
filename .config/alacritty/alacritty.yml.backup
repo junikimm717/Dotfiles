@@ -7,6 +7,11 @@ font:
     bold:
         family: 'JetBrains Mono'
     
+<<<<<<< HEAD
+=======
+
+# Colors (Hyper)
+>>>>>>> d8f9c4ec85950d15ac5deaa9ee6eb5b68cdd39d0
 colors:
   # Default colors
   primary:
@@ -48,7 +53,16 @@ cursor:
     style: Beam
         
 
-background_opacity: 0.8
+
+window:
+  padding:
+    x: 5
+    y: 5
+cursor:
+    style: Beam
+        
+
+background_opacity: 0.6
 Window class (Linux/BSD only):
   class:
     #Application instance name

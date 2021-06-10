@@ -129,13 +129,11 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots)
 export EDITOR=nvim
-#export PF_INFO="ascii title os host kernel uptime pkgs memory"
 export PF_INFO="ascii title os kernel wm shell pkgs"
 pfetch
-# for changing neovim cursor after finishing
-
 export TERM=alacritty
 set -o vi
+# for changing neovim cursor after finishing
 eval "$(starship init zsh)"
 reset-cursor() {
   printf '\033]50;CursorShape=1\x7'

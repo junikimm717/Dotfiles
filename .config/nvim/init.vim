@@ -61,21 +61,19 @@ endfu
 nnoremap <F6> :call WordProcessor() <ESC>
 
 
-func! Lesser()
-    map j gj
-    map k gk
-endfu
-nnoremap <F7> :call Lesser() <ESC>
+map j gj
+map k gk
 
 autocmd BufNewFile,BufRead *.ms :set filetype=groff
 autocmd Filetype groff nnoremap <F12> :w <bar> :!groff -ms %:r\.ms -T pdf >> %:r\.pdf <ESC>
-autocmd Filetype tex,groff call Lesser()
+"autocmd Filetype tex,groff call Lesser()
 
 func! Latexshortcuts()
     inoremap \[ \[\]<Esc>hi
     inoremap $ $$<Esc>i
     "nnoremap <F12> :w <bar> :!pdflatex %:p <bar> :!rm -rf *.aux *.log <ESC>
     nnoremap <F12> :w <bar> :!pdflatex %:p && rm -rf *.aux *.log <ESC>
+    inoremap enum \begin{enumerate}<CR>\end{enumerate}<ESC>O
 endfu
 
 autocmd Filetype tex :call Latexshortcuts()

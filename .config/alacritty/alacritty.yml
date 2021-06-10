@@ -44,7 +44,6 @@ window:
   padding:
     x: 5
     y: 5
-
 cursor:
     style: Beam
         
@@ -54,5 +53,3 @@ Window class (Linux/BSD only):
   class:
     #Application instance name
     instance: Alacritty
-    # General application class
-    general: Alacritty
