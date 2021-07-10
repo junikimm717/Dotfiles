@@ -71,7 +71,7 @@ ZSH_THEME="edvardm"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -113,6 +113,8 @@ alias e='exit'
 alias a='alsamixer'
 alias o='xdg-open'
 alias caps='setxkbmap -option caps:escape'
+alias ec='emacsclient'
+alias cp='cp -r'
 z() {
     zathura $@ & disown
 }
@@ -130,14 +132,21 @@ compinit
 _comp_options+=(globdots)
 export EDITOR=nvim
 export PF_INFO="ascii title os kernel wm shell pkgs"
-pfetch
 export TERM=alacritty
 set -o vi
 # for changing neovim cursor after finishing
 eval "$(starship init zsh)"
+
+
+# sources the configurations for this project.
+source "/home/junikim/programming/rems/config.sh"
+pfetch
+rems l
+
 reset-cursor() {
   printf '\033]50;CursorShape=1\x7'
 }
 export PS1="$(reset-cursor)$PS1"
-# make sure to do last!
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh > /dev/null
+source "/home/junikim/programming/perl/mt/env/env.sh"
+source "/home/junikim/programming/perl/gradecalc/env/env.sh"
+source ~/perl5/perlbrew/etc/bashrc

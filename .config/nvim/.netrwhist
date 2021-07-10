@@ -1,21 +1,12 @@
 let g:netrw_dirhistmax  =10
-<<<<<<< HEAD
-let g:netrw_dirhistcnt =2
-=======
-let g:netrw_dirhistcnt =4
-let g:netrw_dirhist_4='/home/teikim'
-let g:netrw_dirhist_3='/home/junikim/scripts'
->>>>>>> d8f9c4ec85950d15ac5deaa9ee6eb5b68cdd39d0
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/home/junikim/programming/reminders/src'
+let g:netrw_dirhist_5='/home/junikim/programming/reminders/.git'
+let g:netrw_dirhist_4='/home/junikim/scripts'
+let g:netrw_dirhist_3='/home/junikim/.config/sxhkd'
 let g:netrw_dirhist_2='/'
 let g:netrw_dirhist_1='/home/junikim/programming/yacoh/template'
 let g:netrw_dirhist_0='/home/junikim/.config/nvim'
 let g:netrw_dirhist_9='/home/junikim/programming/yacoh/scripts'
 let g:netrw_dirhist_8='/etc/java-openjdk'
 let g:netrw_dirhist_7='/home/junikim'
-let g:netrw_dirhist_6='/home/junikim/.config/nvim'
-let g:netrw_dirhist_5='/etc/pacman.d/gnupg'
-<<<<<<< HEAD
-let g:netrw_dirhist_4='/home/junikim/scripts'
-let g:netrw_dirhist_3='/home/junikim/.config/sxhkd'
-=======
->>>>>>> d8f9c4ec85950d15ac5deaa9ee6eb5b68cdd39d0

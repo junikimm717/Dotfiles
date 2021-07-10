@@ -12,6 +12,8 @@ Plugin 'Valloric/YouCompleteMe', { 'do': './install.py --java-completer --rust-c
 Plugin 'udalov/kotlin-vim'
 Plugin 'Townk/vim-autoclose'
 Plugin 'vim-airline/vim-airline'
+Plugin 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+"Plugin 'vifm/vifm'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -64,19 +66,34 @@ nnoremap <F6> :call WordProcessor() <ESC>
 map j gj
 map k gk
 
+nnoremap <F10> :w<bar>:!/home/junikim/scripts/coderunner/coderunner/coderunner.pl %:p <ESC>
+
 autocmd BufNewFile,BufRead *.ms :set filetype=groff
 autocmd Filetype groff nnoremap <F12> :w <bar> :!groff -ms %:r\.ms -T pdf >> %:r\.pdf <ESC>
-"autocmd Filetype tex,groff call Lesser()
+autocmd Filetype sh nnoremap <F12> :w <bar> :!shellcheck %:p <ESC>
 
 func! Latexshortcuts()
     inoremap \[ \[\]<Esc>hi
     inoremap $ $$<Esc>i
     "nnoremap <F12> :w <bar> :!pdflatex %:p <bar> :!rm -rf *.aux *.log <ESC>
     nnoremap <F12> :w <bar> :!pdflatex %:p && rm -rf *.aux *.log <ESC>
-    inoremap enum \begin{enumerate}<CR>\end{enumerate}<ESC>O
+endfu
+
+func PerlSemiColon()
+    :%s/[^\;^\{]$/$;/g
 endfu
 
 autocmd Filetype tex :call Latexshortcuts()
 
 syntax on
 set mouse=a
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ignore_install = { "javascript" }, -- List of parsers to ignore installing
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+  },
+}
+EOF
