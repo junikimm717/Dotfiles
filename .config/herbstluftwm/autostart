@@ -10,7 +10,7 @@ nitrogen --restore &
 killall picom
 picom --corner-radius 15 --config ~/.config/picom/picom.herbst.conf & 
 
-killall polybar 
+killall polybar
 ~/.config/polybar/launch.herbstluft.sh &
 
 hc emit_hook reload
@@ -30,7 +30,7 @@ hc keybind $Mod-Shift-e spawn quit.sh
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-q close
 #hc keybind $Mod-Return spawn "${TERMINAL:-xterm}" # use your $TERMINAL with xterm as fallback
-hc keybind $Mod-Return spawn /usr/bin/alacritty --config-file ~/.config/alacritty/alacritty.herbst.yml
+hc keybind $Mod-Return spawn /usr/bin/alacritty 
 hc keybind $Mod-Shift-w spawn "brave"
 
 # basic movement in tiling and floating mode
@@ -61,8 +61,8 @@ hc keybind $Mod-p           spawn dmenu_run -fn "JetBrains Mono:size=12"
 
 hc keybind Mod1-Right          spawn brightnessctl set 10%+
 hc keybind Mod1-Left        spawn brightnessctl set 10%-
-hc keybind Mod1-Up          spawn amixer -c 0 sset Master 5+
-hc keybind Mod1-Down          spawn amixer -c 0 sset Master 5-
+hc keybind Mod1-Up          spawn pactl set-sink-volume 0 +5%
+hc keybind Mod1-Down          spawn pactl set-sink-volume 0 -5%
 
 
 

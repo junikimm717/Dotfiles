@@ -1,6 +1,6 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/mktex:$HOME/scripts/bin:$HOME/.emacs.d/bin:$HOME/.local/bin:$PATH
+export PATH=$HOME/.yarn/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/junikim/.oh-my-zsh"
@@ -12,7 +12,6 @@ export HISTSIZE=500
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
 ZSH_THEME="edvardm"
-#ZSH_THEME="agnoster"
 
 # Set list of themes to pick from when loading at random Setting this variable when ZSH_THEME=random will cause zsh to load a theme from this variable instead of looking in $ZSH/themes/ If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
@@ -110,11 +109,12 @@ alias j='journalctl'
 alias r='source ranger'
 alias c='clear'
 alias e='exit'
-alias a='alsamixer'
+alias a='alacritty & disown'
 alias o='xdg-open'
 alias caps='setxkbmap -option caps:escape'
 alias ec='emacsclient'
 alias cp='cp -r'
+alias vc='nvim ~/.config/nvim/init.vim'
 z() {
     zathura $@ & disown
 }
@@ -133,20 +133,26 @@ _comp_options+=(globdots)
 export EDITOR=nvim
 export PF_INFO="ascii title os kernel wm shell pkgs"
 export TERM=alacritty
+export BROWSER=brave
 set -o vi
 # for changing neovim cursor after finishing
 eval "$(starship init zsh)"
 
-
-# sources the configurations for this project.
-source "/home/junikim/programming/rems/config.sh"
 pfetch
-rems l
 
 reset-cursor() {
   printf '\033]50;CursorShape=1\x7'
 }
 export PS1="$(reset-cursor)$PS1"
-source "/home/junikim/programming/perl/mt/env/env.sh"
-source "/home/junikim/programming/perl/gradecalc/env/env.sh"
 source ~/perl5/perlbrew/etc/bashrc
+source "/home/junikim/programming/jpk/pkgs/rems/env/env.sh"
+source "/home/junikim/programming/jpk/pkgs/gradecalc/env/env.sh"
+source "/home/junikim/programming/jpk/pkgs/vrepl-v1/env/env.sh"
+
+#rems l --show cr
+export PATH=/home/junikim/.local/share/gem/ruby/3.0.0/bin:$PATH
+eval $(thefuck --alias)
+alias skype='brave https://web.skype.com'
+export MT_EDITOR=/usr/bin/nvim
+
+alias mp='/usr/bin/ncmpcpp'
