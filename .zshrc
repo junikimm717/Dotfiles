@@ -156,3 +156,4 @@ alias skype='brave https://web.skype.com'
 export MT_EDITOR=/usr/bin/nvim
 
 alias mp='/usr/bin/ncmpcpp'
+alias at='alacritty-themes'

@@ -1,48 +1,54 @@
 font:
-    size: 6.5
-    normal:
-        family: 'Fira Code'
-    italic:
-        family: 'Fira Code'
-    bold:
-        family: 'Fira Code'
+  size: 7
+  normal:
+    family: 'Jetbrains Mono'
+    #family: 'Fira Code'
+  italic:
+    family: 'Jetbrains Mono'
+    #family: 'Fira Code'
+  bold:
+    family: 'Jetbrains Mono'
+    #family: 'Fira Code'
 
 # Colors (Gruvbox Material Dark Medium)
 colors:
+  name: vscode (dark)
+  author: senpai-10
   primary:
-    background: '0x282828'
-    foreground: '0xdfbf8e'
-
+    background: "#1E1E1E"
+    foreground: "#D4D4D4"
+  cursor:
+    text: "#1d1f21"
+    cursor: "#cccccc"
   normal:
-    black:   '0x665c54'
-    red:     '0xea6962'
-    green:   '0xa9b665'
-    yellow:  '0xe78a4e'
-    blue:    '0x7daea3'
-    magenta: '0xd3869b'
-    cyan:    '0x89b482'
-    white:   '0xdfbf8e'
-
+    black: "#000000"
+    red: "#cd3131"
+    green: "#0dbc79"
+    yellow: "#e5e510"
+    blue: "#2472c8"
+    magenta: "#bc3fbc"
+    cyan: "#11a8cd"
+    white: "#e5e5e5"
   bright:
-    black:   '0x928374'
-    red:     '0xea6962'
-    green:   '0xa9b665'
-    yellow:  '0xe3a84e'
-    blue:    '0x7daea3'
-    magenta: '0xd3869b'
-    cyan:    '0x89b482'
-    white:   '0xdfbf8e'
+    black: "#666666"
+    red: "#f14c4c"
+    green: "#23d18b"
+    yellow: "#f5f543"
+    blue: "#3b8eea"
+    magenta: "#d670d6"
+    cyan: "#29b8db"
+    white: "#e5e5e5"
 
 window:
   padding:
     x: 5
     y: 5
 cursor:
-    style: Beam
-        
+  style: Beam
 
 background_opacity: 0.7
 Window class (Linux/BSD only):
   class:
     #Application instance name
     instance: Alacritty
+theme: vscode.dark

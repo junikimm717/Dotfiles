@@ -5,6 +5,7 @@ picom --corner-radius 15 &
 nitrogen --restore &
 ~/.config/polybar/launch.bspwm.sh
 
+
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 #bspc monitor -d I II III IV V VI VII VIII IX X
@@ -20,3 +21,6 @@ bspc config gapless_monocle      true
 
 bspc rule -a Gimp desktop='^8' state=floating follow=on
 bspc rule -a Spotify desktop='^6'
+
+eww daemon
+eww open right

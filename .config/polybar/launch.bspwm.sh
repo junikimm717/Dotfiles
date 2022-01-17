@@ -18,6 +18,7 @@ newver() {
     polybar -c ~/.config/polybar/config backlight &
     polybar -c ~/.config/polybar/config wlan &
     polybar -c ~/.config/polybar/config alsa &
+    #polybar -c ~/.config/polybar/config.mpd mpd &
 }
 
 newver

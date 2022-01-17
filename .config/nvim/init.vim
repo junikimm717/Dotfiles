@@ -8,25 +8,43 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'Valloric/YouCompleteMe', { 'do': './install.py --java-completer --rust-completer --ts-completer --go-completer' }
-"Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+"Plugin 'Valloric/YouCompleteMe', { 'do': './install.py --java-completer --rust-completer --ts-completer --go-completer' }
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+Plugin 'lervag/vimtex'
+
 Plugin 'udalov/kotlin-vim'
 Plugin 'Townk/vim-autoclose'
+Plugin 'elkowar/yuck.vim'
+
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'powerline/powerline'
+Plugin 'tpope/vim-fugitive'
+Plugin 'akinsho/toggleterm.nvim'
+
+"
 Plugin 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plugin 'digitaltoad/vim-pug'
 Plugin 'dylanaraps/fff.vim'
-Plugin 'sbdchd/neoformat'
 Plugin 'mattn/emmet-vim'
 Plugin 'LnL7/vim-nix'
 Plugin 'nikvdp/ejs-syntax'
+Plugin 'Yggdroot/indentLine'
+
+"For nvim tree stuff
+Plugin 'kyazdani42/nvim-web-devicons' " for file icons
+Plugin 'kyazdani42/nvim-tree.lua'
 "Plugin 'vifm/vifm'
+
+Plugin 'romgrk/barbar.nvim'
+
+Plugin 'simrat39/symbols-outline.nvim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-"autocmd FileType python,typescript,typescriptreact source ~/.config/nvim/coc.vim
+source ~/.config/nvim/coc.vim
 
 ""let g:ycm_show_diagnostics_ui = 0
 
@@ -77,6 +95,8 @@ nnoremap <F6> :call WordProcessor() <ESC>
 map j gj
 map k gk
 
+let g:airline_theme='base16_chalk'
+
 nnoremap <F10> :w<bar>:!/home/junikim/scripts/coderunner/coderunner/coderunner.pl %:p <ESC>
 
 autocmd BufNewFile,BufRead *.ms :set filetype=groff
@@ -90,14 +110,12 @@ func! Latexshortcuts()
     nnoremap <F12> :w <bar> :!if test -f Makefile; then; make clean all; else; pdflatex %:p && rm -rf *.aux *.log; fi <ESC>
 endfu
 
-autocmd BufWritePre *.ts,*.js,*.tsx,*.php,*.html,*.rb,*.py,*.sh Neoformat
-
 autocmd Filetype tex :call Latexshortcuts()
 autocmd Filetype markdown nnoremap <F12> :w <bar> :!if test -f Makefile; then; make clean all; fi;<ESC>
 
 nnoremap f :F<CR>
 syntax on
-set mouse=a
+set mouse+=a
 
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
@@ -109,8 +127,26 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 
+nnoremap S :SymbolsOutline<ESC>
+
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+set conceallevel=0
+let g:vim_json_syntax_conceal = 0
+let g:indentLine_setConceal = 0
+let g:tex_flavor = 'latex'
+let g:airline_powerline_fonts = 1
+
+"source ~/.config/nvim/config/devicons.vim
+"source ~/.config/nvim/config/outline.vim
+"source ~/.config/nvim/config/nvimtree.vim
+"source ~/.config/nvim/config/barbar.vim
+"source ~/.config/nvim/config/filetypes.vim
+"source ~/.config/nvim/config/toggleterm.vim
+
+for f in split(glob('~/.config/nvim/config/*.vim'), '\n')
+    exe 'source' f
+endfor

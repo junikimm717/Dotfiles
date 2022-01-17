@@ -23,8 +23,8 @@ background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
 foreground-alt = #555
-primary = #ffb52a
-secondary = #e60053
+primary = #cec0af
+secondary = #242e35
 alert = #bd2c40
 black = #000
 white = #fff
@@ -43,8 +43,8 @@ width = 500
 offset-y = 15
 offset-x = 50
 radius=15
-background = #004b59
-font-0 = Fira Code:style=Regular
+background = ${colors.secondary}
+font-0 = Jetbrains Mono:style=Regular
 
 [module/xwindow]
 type = internal/xworkspaces

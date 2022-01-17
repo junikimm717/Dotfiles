@@ -23,8 +23,8 @@ background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
 foreground-alt = #555
-primary = #ffb52a
-secondary = #e60053
+primary = #cec0af
+secondary = #242e35
 alert = #bd2c40
 black = #000
 white = #fff
@@ -32,7 +32,7 @@ grey = #aaa
 darkgrey = #555
 red = #f00
 green = #0f0
-blue = #4c7899
+blue = #2d02d0
 yellow = #d2b55b
 
 
@@ -40,12 +40,13 @@ yellow = #d2b55b
 modules-center = date
 ;modules-right = wlan
 tray-position = right
-font-0 = Fira Code:style=Regular
+font-0 = Jetbrains Mono:style=Regular
+font-1 = FontAwesome:style=Regular
 height = 30
 width = 1820
 offset-y = 15
 offset-x = 50
-background = #aaa9ad 
+background = ${colors.primary}
 radius = 15
 override-redirect=true
 
@@ -63,7 +64,7 @@ offset-x = 50
 radius=15
 override-redirect=true
 background = #004b59
-font-0 = Fira Code:style=Regular
+font-0 = Jetbrains Mono:style=Regular
 
 [module/i3]
 type = internal/i3
@@ -91,7 +92,7 @@ offset-x = 50
 radius=15
 override-redirect=true
 background = #004b59
-font-0 = Fira Code:style=Regular
+font-0 = Jetbrains Mono:style=Regular
 
 [module/bspwm]
 type = internal/bspwm
@@ -131,8 +132,8 @@ offset-y = 15
 offset-x = 600
 radius=15
 override-redirect=true
-background = #29544b
-font-0 = Fira Code:style=Regular
+background = ${colors.secondary}
+font-0 = Jetbrains Mono:style=Regular
 
 [module/battery]
 type = internal/battery
@@ -146,6 +147,7 @@ label-charging = CHR %percentage%%
 label-discharging = DIS %percentage%%
 label-full =  100%
 
+
 [bar/backlight]
 modules-center = backlight
 height = 30
@@ -154,21 +156,22 @@ offset-y = 15
 offset-x = 1100
 radius=15
 override-redirect=true
-background = #004b59
-font-0 = Fira Code:style=Regular
-font-1 = siji:pixelsize=10;1
+background = ${colors.secondary}
+font-0 = Jetbrains Mono:style=Regular
+font-1 = FontAwesome:style=Regular
+;font-2 = siji:pixelsize=10;1
 
 [module/backlight]
 type = internal/backlight
 card = intel_backlight
-format = BL <ramp>
+format = BL <ramp> <label>
 ; Available tokens:
 ; Only applies if <ramp> is used
-ramp-0 = ____
-ramp-1 = *___
-ramp-2 = **__
-ramp-3 = ***_
-ramp-4 = ****
+ramp-0 = 🌕
+ramp-1 = 🌔
+ramp-2 = 🌓
+ramp-3 = 🌒
+ramp-4 = 🌑
 enable-scroll = true
 label = "%percentage%%"
 
@@ -181,8 +184,8 @@ offset-y = 15
 offset-x = 1550
 radius=15
 override-redirect=true
-background = #1a0936
-font-0 = Fira Code:style=Regular
+background = ${colors.secondary}
+font-0 = Jetbrains Mono:style=Regular
 
 [module/wlan]
 type = internal/network
@@ -209,8 +212,10 @@ offset-y = 15
 offset-x = 1300
 radius=15
 override-redirect=true
-background = #0e311f
-font-0 = Fira Code:style=Regular
+background = ${colors.secondary}
+foreground = #fff
+font-0 = Jetbrains Mono:style=Regular
+font-1 = FontAwesome:style=Regular
 
 [module/pulse]
 type = internal/pulseaudio
@@ -226,6 +231,16 @@ use-ui-max = true
 ; Interval for volume increase/decrease (in percent points)
 ; Default: 5
 interval = 5
+
+format-volume = SO: <ramp-volume> <label-volume>
+
+label-volume = %percentage%%
+
+label-muted = 🔇 muted
+ramp-volume-0 = 🔈
+ramp-volume-1 = 🔉
+ramp-volume-2 = 🔊
+click-right = pavucontrol
 
 [module/alsa]
 type = internal/alsa
