@@ -17,11 +17,8 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme                                     = {}
 theme.zenburn_dir                               = require("awful.util").get_themes_dir() .. "zenburn"
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/steamburn"
-<<<<<<< HEAD
 theme.wallpaper                                 = os.getenv("HOME") .. "/wallpaper/0003.jpg"
-=======
-theme.wallpaper                                 = os.getenv("HOME") .. "/wallpaper/0018.jpg"
->>>>>>> d8f9c4ec85950d15ac5deaa9ee6eb5b68cdd39d0
+--theme.wallpaper                                 = os.getenv("HOME") .. "/wallpaper/0018.jpg"
 juni_color = {
     cyan = "#005577",
     white = "#ffffff",

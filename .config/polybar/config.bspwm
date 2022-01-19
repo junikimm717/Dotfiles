@@ -38,29 +38,34 @@ yellow = #d2b55b
 [bar/bspwm]
 modules-center = bspwm
 height = 30
-width = 550
+width = 350
 offset-y = 15
-offset-x = 50
-radius=15
+offset-x = 30
+radius=5
 background = ${colors.secondary}
 font-0 = Jetbrains Mono:style=Regular
+font-1 = "Iosevka:pixelsize=12;0"
 
 [module/bspwm]
 type=internal/bspwm
 
-label-focused = %index%
-label-focused-background = ${colors.blue}
+#label-focused = %index%
+label-focused = ●
+#label-focused-background = ${colors.blue}
 label-focused-underline= #ffb52a
 label-focused-padding = 2
 
-label-occupied = %index%
+#label-occupied = %index%
+label-occupied = ○
 label-occupied-padding = 2
 
-label-urgent = %index%!
+#label-urgent = %index%!
+label-urgent = ○
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
-label-empty = %index%
+#label-empty = %index%
+label-empty = ○
 label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 2
 

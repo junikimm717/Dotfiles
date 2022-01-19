@@ -9,9 +9,9 @@ nitrogen --restore &
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 #bspc monitor -d I II III IV V VI VII VIII IX X
-bspc monitor -d 1 2 3 4 5 M
+bspc monitor -d 1 2 3 4 5 6
 
-bspc config border_width         2
+bspc config border_width         1
 bspc config window_gap          20
 
 bspc config top_padding         25
@@ -24,3 +24,8 @@ bspc rule -a Spotify desktop='^6'
 
 eww daemon
 eww open right
+
+# only add if nothing is there
+if test "$(mpc playlist | wc -l)" -eq 0 ; then
+  mpc ls | mpc add
+fi

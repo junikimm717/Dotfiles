@@ -25,7 +25,7 @@ Plugin 'akinsho/toggleterm.nvim'
 "
 Plugin 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plugin 'digitaltoad/vim-pug'
-Plugin 'dylanaraps/fff.vim'
+"Plugin 'dylanaraps/fff.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'LnL7/vim-nix'
 Plugin 'nikvdp/ejs-syntax'
@@ -113,7 +113,7 @@ endfu
 autocmd Filetype tex :call Latexshortcuts()
 autocmd Filetype markdown nnoremap <F12> :w <bar> :!if test -f Makefile; then; make clean all; fi;<ESC>
 
-nnoremap f :F<CR>
+"nnoremap f :F<CR>
 syntax on
 set mouse+=a
 

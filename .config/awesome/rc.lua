@@ -86,7 +86,7 @@ local themes = {
     "vertex",          -- 10
 }
 
-local chosen_theme = themes[9]
+local chosen_theme = themes[10]
 --local chosen_theme = themes[10]
 local modkey       = "Mod4"
 local altkey       = "Mod1"
@@ -429,8 +429,8 @@ globalkeys = my_table.join(
     -- Widgets popups
     awful.key({ altkey, }, "c", function () if beautiful.cal then beautiful.cal.show(7) end end,
               {description = "show calendar", group = "widgets"}),
-    awful.key({ altkey, }, "h", function () if beautiful.fs then beautiful.fs.show(7) end end,
-              {description = "show filesystem", group = "widgets"}),
+    --awful.key({ altkey, }, "h", function () if beautiful.fs then beautiful.fs.show(7) end end,
+              --{description = "show filesystem", group = "widgets"}),
     awful.key({ altkey, }, "w", function () if beautiful.weather then beautiful.weather.show(7) end end,
               {description = "show weather", group = "widgets"}),
 

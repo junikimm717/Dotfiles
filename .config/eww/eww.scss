@@ -6,6 +6,7 @@ $pink:#f0cad5;
 $gray:        #3B4442;
 $white:       #1B2020;
 $gray:        #2A3331;
+$gray: $darkblue;
 $green:       #7CA198;
 $yellow:      #DDB278;
 $blue:        #6080B0;
@@ -41,7 +42,7 @@ $border : #cec0af;
 }
 
 .musiccontainer {
-  font-size: 24px;
+  font-size: 20px;
   padding: 10px;
 }
 
@@ -59,6 +60,7 @@ $border : #cec0af;
   min-height: 10px;
 }
 
+
 .bluescale {color: #{$blue};}
 .greenscale {color: #{$green};}
 .yellowscale {color: #{$yellow};}
@@ -67,6 +69,7 @@ $border : #cec0af;
 .bluescale scale trough highlight {background-color: #{$blue};}
 .greenscale scale trough highlight {background-color: #{$green};}
 .yellowscale scale trough highlight {background-color: #{$yellow};}
+.purplescale scale trough highlight {background-color: #{$purple};}
 
 
 .progress scale trough,
@@ -75,6 +78,24 @@ $border : #cec0af;
   border-radius: 10px;
   min-height: 20px;
   min-width: 135px;
+  margin-left: 20px;
+}
+
+// music bar
+
+.musicprogress  {
+  margin: 1rem;
+  border-radius:1rem;
+  min-height: 10px;
+}
+.musicprogress scale trough highlight { border-radius: 10px; }
+
+.musicprogress scale trough,
+{
+  background-color: $gray;
+  border-radius: 10px;
+  min-height: 20px;
+  min-width: 500px;
   margin-left: 20px;
 }
 
@@ -93,6 +114,8 @@ $border : #cec0af;
   border-radius:2rem;
   font-size: 50px;
 }
+
+// bar
 
 .box {
   margin: 10px;
@@ -113,7 +136,7 @@ $border : #cec0af;
 }
 
 .launch:hover {
-  background-color: $blue;
+  background-color: $darkblue;
   color: white;
 
   animation-name: spin;

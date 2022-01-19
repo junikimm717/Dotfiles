@@ -133,7 +133,7 @@ _comp_options+=(globdots)
 export EDITOR=nvim
 export PF_INFO="ascii title os kernel wm shell pkgs"
 export TERM=alacritty
-export BROWSER=brave
+#export BROWSER=brave
 set -o vi
 # for changing neovim cursor after finishing
 eval "$(starship init zsh)"

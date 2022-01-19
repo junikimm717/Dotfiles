@@ -39,20 +39,24 @@ yellow = #d2b55b
 [bar/background]
 modules-center = date
 ;modules-right = wlan
-tray-position = right
+#tray-position = right
 font-0 = Jetbrains Mono:style=Regular
 font-1 = FontAwesome:style=Regular
 height = 30
-width = 1820
+#width = 1820
+width = 320
+#offset-x = 50
+offset-x = 800
+
 offset-y = 15
-offset-x = 50
 background = ${colors.primary}
-radius = 15
+radius=5
 override-redirect=true
 
 [module/date]
 type = internal/date
-date = "%h-%d-20%y %H:%M:%S"
+date = "%h-%d-20%y %r"
+#date = "%h-%d-20%y %H:%M:%S"
 label-foreground = #000000
 
 [bar/i3]
@@ -61,7 +65,7 @@ height = 30
 width = 500
 offset-y = 15
 offset-x = 50
-radius=15
+radius=5
 override-redirect=true
 background = #004b59
 font-0 = Jetbrains Mono:style=Regular
@@ -89,7 +93,7 @@ height = 30
 width = 500
 offset-y = 15
 offset-x = 50
-radius=15
+radius=5
 override-redirect=true
 background = #004b59
 font-0 = Jetbrains Mono:style=Regular
@@ -129,11 +133,13 @@ modules-center = battery
 height = 30
 width = 150
 offset-y = 15
-offset-x = 600
-radius=15
+#offset-x = 600
+offset-x = 520
+radius=5
 override-redirect=true
 background = ${colors.secondary}
 font-0 = Jetbrains Mono:style=Regular
+font-1 = FontAwesome:style=Regular
 
 [module/battery]
 type = internal/battery
@@ -142,38 +148,54 @@ battery = BAT0
 adapter = ADP1
 poll-interval = 5
 
-;time-format = %H:%M
-label-charging = CHR %percentage%%
-label-discharging = DIS %percentage%%
+time-format = %H:%M
+format-charging =  <ramp-capacity> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+
+label-charging = %percentage%%
+label-discharging = %percentage%%
 label-full =  100%
 
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
 
 [bar/backlight]
 modules-center = backlight
 height = 30
 width = 150
 offset-y = 15
-offset-x = 1100
-radius=15
+#offset-x = 1100
+#offset-x = 420
+offset-x = 1150
+radius=5
 override-redirect=true
 background = ${colors.secondary}
 font-0 = Jetbrains Mono:style=Regular
 font-1 = FontAwesome:style=Regular
+font-2 = RobotoMono Nerd Font:pixelsize=13;1
 ;font-2 = siji:pixelsize=10;1
 
 [module/backlight]
+
 type = internal/backlight
 card = intel_backlight
-format = BL <ramp> <label>
+format = <ramp> <label>
 ; Available tokens:
 ; Only applies if <ramp> is used
-ramp-0 = 🌕
-ramp-1 = 🌔
-ramp-2 = 🌓
-ramp-3 = 🌒
-ramp-4 = 🌑
-enable-scroll = true
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
+enable-scroll = false
 label = "%percentage%%"
+
+#font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
+font-4 = "Siji:pixelsize=10;1"
+font-3 = terminus:pixelsize=12
 
 [bar/wlan]
 ;background = #1a0936
@@ -182,10 +204,11 @@ height = 30
 width = 320
 offset-y = 15
 offset-x = 1550
-radius=15
+radius=5
 override-redirect=true
 background = ${colors.secondary}
 font-0 = Jetbrains Mono:style=Regular
+font-1 = NotoColorEmoji:scale=12
 
 [module/wlan]
 type = internal/network
@@ -194,28 +217,38 @@ format-disconnected = <label-disconnected>
 format-connected = <label-connected> <ramp-signal>
 
 ;label-connected = "CON %essid% %{F#00F000}%local_ip%"
-label-connected = "CON %essid%"
+label-connected = "%essid%"
 label-disconnected = "UNC"
 
-ramp-signal-0 = _____
-ramp-signal-1 = *____
-ramp-signal-2 = **___
-ramp-signal-3 = ***__
-ramp-signal-4 = ****_
-ramp-signal-5 = *****
+ramp-signal-0 = 😱
+ramp-signal-1 = 😠
+ramp-signal-2 = 😒
+ramp-signal-3 = 😊
+ramp-signal-4 = 😃
+ramp-signal-5 = 😈
+
+#ramp-signal-0 = _____
+#ramp-signal-1 = *____
+#ramp-signal-2 = **___
+#ramp-signal-3 = ***__
+#ramp-signal-4 = ****_
+#ramp-signal-5 = *****
 
 [bar/alsa]
 modules-center = pulse
 height = 30
 width = 200
 offset-y = 15
-offset-x = 1300
-radius=15
+#offset-x = 1300
+offset-x = 1325
+radius=5
 override-redirect=true
 background = ${colors.secondary}
 foreground = #fff
 font-0 = Jetbrains Mono:style=Regular
 font-1 = FontAwesome:style=Regular
+font-2 = "Iosevka:pixelsize=12;0"
+font-3 = RobotoMono Nerd Font:pixelsize=12;1
 
 [module/pulse]
 type = internal/pulseaudio
@@ -226,20 +259,20 @@ sink = alsa_output.pci-0000_12_00.3.analog-stereo
 
 ; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
 ; Default: true
-use-ui-max = true
+use-ui-max = false
 
 ; Interval for volume increase/decrease (in percent points)
 ; Default: 5
 interval = 5
 
-format-volume = SO: <ramp-volume> <label-volume>
+format-volume = <ramp-volume> <label-volume>
 
 label-volume = %percentage%%
 
-label-muted = 🔇 muted
-ramp-volume-0 = 🔈
-ramp-volume-1 = 🔉
-ramp-volume-2 = 🔊
+label-muted = 婢
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
 click-right = pavucontrol
 
 [module/alsa]
