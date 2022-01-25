@@ -134,6 +134,12 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+inoremap <A-a> ā
+inoremap <A-e> ē
+inoremap <A-i> ī
+inoremap <A-o> ō
+inoremap <A-u> ū
+
 set conceallevel=0
 let g:vim_json_syntax_conceal = 0
 let g:indentLine_setConceal = 0
