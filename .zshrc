@@ -1,6 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/mktex:$HOME/scripts/bin:$HOME/.emacs.d/bin:$HOME/.local/bin:$PATH
-export PATH=$HOME/.yarn/bin:$PATH
+export PATH=$HOME/go/bin:$HOME/.yarn/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/junikim/.oh-my-zsh"
@@ -114,9 +114,19 @@ alias o='xdg-open'
 alias caps='setxkbmap -option caps:escape'
 alias ec='emacsclient'
 alias cp='cp -r'
+
+# config aliases
 alias vc='nvim ~/.config/nvim/init.vim'
+alias vz='nvim ~/.zshrc'
+alias vk='nvim ~/.config/kitty/kitty.conf'
+alias va='nvim ~/.config/alacritty/alacritty.yml'
+alias vb='nvim ~/.config/bspwm/bspwmrc'
+alias vs='nvim ~/.config/sxhkd/sxhkdrc'
+
+alias sz='source ~/.zshrc'
+
 z() {
-    zathura $@ & disown
+    (zathura $@ 2>&1 > /dev/null) & disown
 }
 mkcd() {
     mkdir $1 && cd $1
@@ -138,6 +148,10 @@ set -o vi
 # for changing neovim cursor after finishing
 eval "$(starship init zsh)"
 
+school() {
+  cd "$(find ~/ohsg10/s2 -maxdepth 3 -type d | fzf)"
+}
+
 pfetch
 
 reset-cursor() {
@@ -154,6 +168,7 @@ export PATH=/home/junikim/.local/share/gem/ruby/3.0.0/bin:$PATH
 eval $(thefuck --alias)
 alias skype='brave https://web.skype.com'
 export MT_EDITOR=/usr/bin/nvim
+export VISUAL=nvim
 
 alias mp='/usr/bin/ncmpcpp'
 alias at='alacritty-themes'

@@ -16,6 +16,8 @@ Plugin 'udalov/kotlin-vim'
 Plugin 'Townk/vim-autoclose'
 Plugin 'elkowar/yuck.vim'
 
+Plugin 'rust-lang/rust.vim'
+
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'powerline/powerline'
@@ -128,6 +130,9 @@ require'nvim-treesitter.configs'.setup {
 EOF
 
 nnoremap S :SymbolsOutline<ESC>
+let g:rustfmt_autosave = 1
+
+autocmd InsertEnter * norm zz
 
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
