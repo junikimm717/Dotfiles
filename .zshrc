@@ -109,12 +109,11 @@ alias j='journalctl'
 alias r='source ranger'
 alias c='clear'
 alias e='exit'
-alias a='alacritty & disown'
+alias a='alacritty 2>&1 > /dev/null & disown'
 alias o='xdg-open'
 alias caps='setxkbmap -option caps:escape'
 alias ec='emacsclient'
 alias cp='cp -r'
-
 # config aliases
 alias vc='nvim ~/.config/nvim/init.vim'
 alias vz='nvim ~/.zshrc'
@@ -122,11 +121,19 @@ alias vk='nvim ~/.config/kitty/kitty.conf'
 alias va='nvim ~/.config/alacritty/alacritty.yml'
 alias vb='nvim ~/.config/bspwm/bspwmrc'
 alias vs='nvim ~/.config/sxhkd/sxhkdrc'
+alias vn='nvim ~/.config/ncmpcpp/config'
+alias vm='nvim ~/.config/mpd/mpd.conf'
+alias vd='cd ~/suckless/dwm && nvim config.h'
 
 alias sz='source ~/.zshrc'
+alias mb='mktex build'
+alias mw='mktex watch'
 
 z() {
     (zathura $@ 2>&1 > /dev/null) & disown
+}
+m() {
+    (mupdf $@ 2>&1 > /dev/null) & disown
 }
 mkcd() {
     mkdir $1 && cd $1
@@ -148,23 +155,17 @@ set -o vi
 # for changing neovim cursor after finishing
 eval "$(starship init zsh)"
 
-school() {
-  cd "$(find ~/ohsg10/s2 -maxdepth 3 -type d | fzf)"
-}
-
 pfetch
 
-reset-cursor() {
-  printf '\033]50;CursorShape=1\x7'
-}
-export PS1="$(reset-cursor)$PS1"
 source ~/perl5/perlbrew/etc/bashrc
 source "/home/junikim/programming/jpk/pkgs/rems/env/env.sh"
 source "/home/junikim/programming/jpk/pkgs/gradecalc/env/env.sh"
 source "/home/junikim/programming/jpk/pkgs/vrepl-v1/env/env.sh"
+source "/home/junikim/ohsg10/env"
 
 #rems l --show cr
 export PATH=/home/junikim/.local/share/gem/ruby/3.0.0/bin:$PATH
+export PATH=/home/junikim/ohsg10/bin:$PATH
 eval $(thefuck --alias)
 alias skype='brave https://web.skype.com'
 export MT_EDITOR=/usr/bin/nvim
@@ -172,3 +173,8 @@ export VISUAL=nvim
 
 alias mp='/usr/bin/ncmpcpp'
 alias at='alacritty-themes'
+
+reset-cursor() {
+  printf '\033]50;CursorShape=1\x7'
+}
+export PS1="$(reset-cursor)$PS1"

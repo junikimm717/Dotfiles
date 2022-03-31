@@ -1,6 +1,6 @@
 {
   "diagnostic-languageserver.filetypes": {
-    "sh": "shellcheck"
+    "sh": ["shellcheck", "-x"]
   },
   "coc.preferences.formatOnSaveFiletypes": [
     "css",

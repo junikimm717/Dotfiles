@@ -1,49 +1,48 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-"Plugin 'Valloric/YouCompleteMe', { 'do': './install.py --java-completer --rust-completer --ts-completer --go-completer' }
-Plugin 'neoclide/coc.nvim', {'branch': 'release'}
-Plugin 'lervag/vimtex'
+Plug 'VundleVim/Vundle.vim'
+"Plug 'Valloric/YouCompleteMe', { 'do': './install.py --java-completer --rust-completer --ts-completer --go-completer' }
+Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
+Plug 'lervag/vimtex'
 
-Plugin 'udalov/kotlin-vim'
-Plugin 'Townk/vim-autoclose'
-Plugin 'elkowar/yuck.vim'
+Plug 'udalov/kotlin-vim'
+Plug 'Townk/vim-autoclose'
+Plug 'elkowar/yuck.vim'
 
-Plugin 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim'
 
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-"Plugin 'powerline/powerline'
-Plugin 'tpope/vim-fugitive'
-Plugin 'akinsho/toggleterm.nvim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+"Plug 'powerline/powerline'
+Plug 'tpope/vim-fugitive'
+Plug 'akinsho/toggleterm.nvim'
 
 "
-Plugin 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plugin 'digitaltoad/vim-pug'
-"Plugin 'dylanaraps/fff.vim'
-Plugin 'mattn/emmet-vim'
-Plugin 'LnL7/vim-nix'
-Plugin 'nikvdp/ejs-syntax'
-Plugin 'Yggdroot/indentLine'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'digitaltoad/vim-pug'
+"Plug 'dylanaraps/fff.vim'
+Plug 'mattn/emmet-vim'
+Plug 'LnL7/vim-nix'
+Plug 'nikvdp/ejs-syntax'
+Plug 'Yggdroot/indentLine'
 
 "For nvim tree stuff
-Plugin 'kyazdani42/nvim-web-devicons' " for file icons
-Plugin 'kyazdani42/nvim-tree.lua'
-"Plugin 'vifm/vifm'
+Plug 'kyazdani42/nvim-web-devicons' " for file icons
+Plug 'kyazdani42/nvim-tree.lua'
+"Plug 'vifm/vifm'
 
-Plugin 'romgrk/barbar.nvim'
+Plug 'romgrk/barbar.nvim'
 
-Plugin 'simrat39/symbols-outline.nvim'
+Plug 'simrat39/symbols-outline.nvim'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
+" All of your Plugs must be added before the following line
+call plug#end()            " required
 filetype plugin indent on    " required
 
 source ~/.config/nvim/coc.vim
@@ -94,26 +93,22 @@ endfu
 nnoremap <F6> :call WordProcessor() <ESC>
 
 
+func! Latexshortcuts()
+    inoremap \[ \[\]<Esc>hi
+    inoremap $ $$<Esc>i
+    "nnoremap <F12> :w <bar> :!pdflatex %:p <bar> :!rm -rf *.aux *.log <ESC>
+    "nnoremap <F12> :w <bar> :!if test -f Makefile; then; make clean all; else; pdflatex %:p && rm -rf *.aux *.log; fi <ESC>
+endfu
+
+autocmd Filetype tex :call Latexshortcuts()
+
 map j gj
 map k gk
 
 let g:airline_theme='base16_chalk'
 
 nnoremap <F10> :w<bar>:!/home/junikim/scripts/coderunner/coderunner/coderunner.pl %:p <ESC>
-
-autocmd BufNewFile,BufRead *.ms :set filetype=groff
-autocmd Filetype groff nnoremap <F12> :w <bar> :!groff -ms %:r\.ms -T pdf >> %:r\.pdf <ESC>
-autocmd Filetype sh nnoremap <F12> :w <bar> :!shellcheck %:p <ESC>
-
-func! Latexshortcuts()
-    inoremap \[ \[\]<Esc>hi
-    inoremap $ $$<Esc>i
-    "nnoremap <F12> :w <bar> :!pdflatex %:p <bar> :!rm -rf *.aux *.log <ESC>
-    nnoremap <F12> :w <bar> :!if test -f Makefile; then; make clean all; else; pdflatex %:p && rm -rf *.aux *.log; fi <ESC>
-endfu
-
-autocmd Filetype tex :call Latexshortcuts()
-autocmd Filetype markdown nnoremap <F12> :w <bar> :!if test -f Makefile; then; make clean all; fi;<ESC>
+nnoremap <F12> :w <bar> !mktex build <ESC>
 
 "nnoremap f :F<CR>
 syntax on
@@ -132,7 +127,7 @@ EOF
 nnoremap S :SymbolsOutline<ESC>
 let g:rustfmt_autosave = 1
 
-autocmd InsertEnter * norm zz
+"autocmd InsertEnter * norm zz
 
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j

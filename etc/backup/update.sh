@@ -1,4 +1,4 @@
 #!/bin/sh
 
-pacman -Qnq > packages.txt
-pacman -Qmq | grep -v 'brother' > aur.txt
+pacman -Qenq > packages.txt
+pacman -Qemq | grep -v 'brother' > aur.txt

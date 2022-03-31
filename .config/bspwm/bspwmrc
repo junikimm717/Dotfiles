@@ -26,6 +26,6 @@ eww daemon
 eww open right
 
 # only add if nothing is there
-if test "$(mpc playlist | wc -l)" -eq 0 ; then
-  mpc ls | mpc add
-fi
+#if test "$(mpc playlist | wc -l)" -eq 0 ; then
+#  mpc ls | mpc add
+#fi
