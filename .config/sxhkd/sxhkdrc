@@ -7,7 +7,7 @@ super + e
 
 # terminal emulator
 super + Return
-	alacritty
+	kitty
 # browser
 super + shift + w
     brave

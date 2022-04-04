@@ -167,7 +167,6 @@ source "/home/junikim/ohsg10/env"
 export PATH=/home/junikim/.local/share/gem/ruby/3.0.0/bin:$PATH
 export PATH=/home/junikim/ohsg10/bin:$PATH
 eval $(thefuck --alias)
-alias skype='brave https://web.skype.com'
 export MT_EDITOR=/usr/bin/nvim
 export VISUAL=nvim
 
