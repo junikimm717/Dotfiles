@@ -21,6 +21,9 @@ super + {p,space}
   rofi -show drun
 	#dmenu_run -fn "Fira Code:size=14"
 
+# emacs client
+super + shift + c
+  emacsclient --create-frame
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -165,7 +168,7 @@ XF86AudioMute
 
 # brightness stuff
 {XF86MonBrightnessUp,XF86MonBrightnessDown}
-    brightnessctl set {10%+,10%-}
+    xbacklight {+10,-10}
 
 # screenshot capability
 super + shift + s

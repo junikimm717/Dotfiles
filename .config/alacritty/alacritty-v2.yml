@@ -1,0 +1,48 @@
+font:
+    size: 6.5
+    normal:
+        family: 'JetBrains Mono'
+    italic:
+        family: 'JetBrains Mono'
+    bold:
+        family: 'JetBrains Mono'
+
+# Colors (Gruvbox Material Dark Medium)
+colors:
+  primary:
+    background: '0x282828'
+    foreground: '0xdfbf8e'
+
+  normal:
+    black:   '0x665c54'
+    red:     '0xea6962'
+    green:   '0xa9b665'
+    yellow:  '0xe78a4e'
+    blue:    '0x7daea3'
+    magenta: '0xd3869b'
+    cyan:    '0x89b482'
+    white:   '0xdfbf8e'
+
+  bright:
+    black:   '0x928374'
+    red:     '0xea6962'
+    green:   '0xa9b665'
+    yellow:  '0xe3a84e'
+    blue:    '0x7daea3'
+    magenta: '0xd3869b'
+    cyan:    '0x89b482'
+    white:   '0xdfbf8e'
+
+window:
+  padding:
+    x: 5
+    y: 5
+cursor:
+    style: Beam
+        
+
+background_opacity: 0.7
+Window class (Linux/BSD only):
+  class:
+    #Application instance name
+    instance: Alacritty
